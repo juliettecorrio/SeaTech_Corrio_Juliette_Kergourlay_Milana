@@ -4,18 +4,19 @@
 #include "ChipConfig.h"
 #include "IO.h"
 #include "timer.h"
+#include "PWM.h"
 
 int main (void){
     
     //Initialisation oscillateur
 
     InitOscillator();
+    InitIO();
     InitTimer23();
     InitTimer1();
-
-    // Boucle Principale
+    // Initialisation PWM   
+    InitPWM();
     
-    InitIO();
     LED_BLANCHE_1 = 1;
     LED_BLEUE_1 = 1;
     LED_ORANGE_1 = 1;
@@ -27,8 +28,10 @@ int main (void){
     LED_ORANGE_2 = 1;
     LED_ROUGE_2 = 1;
     LED_VERTE_2 = 1;
-
-            
+    
+    PWM_EN = 1;
+    
+       
     // Boucle Principale
     while(1)
     {        
