@@ -16,12 +16,12 @@ void InitTimer1(void) {
     IFS0bits.T1IF = 0; // Clear Timer Interrupt Flag
     IEC0bits.T1IE = 1; // Enable Timer interrupt
     T1CONbits.TON = 1; // Enable Timer
-    PWMUpdateSpeed();
 }
 //Interruption du timer 1
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
     IFS0bits.T1IF = 0;
     LED_BLANCHE_1 = !LED_BLANCHE_1;
+    PWMUpdateSpeed(); 
 }
 //Initialisation d?un timer 32 bits
 void InitTimer23(void) {
